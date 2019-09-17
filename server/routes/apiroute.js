@@ -16,9 +16,19 @@ mongoose.connection.on('connected',() => {
     console.log("Database connection successful");
 });
 
-router.get('/',(req,res,next)=> {
-    res.send('Retieving notes');
-    //Add code
+router.get('/notes',(req,res,next)=> {
+    console.log('Retieving notes');
+    //Add code to fetch notes
+    noteSchema.find({})
+        .exec((err,notes) => {
+            if(err) {
+                console.log(err+ " occurred while fetching notes.");
+            }
+            else {
+                res.json(posts);
+                console.log(posts);
+            }
+        })
 });
 
 

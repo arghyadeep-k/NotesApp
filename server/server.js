@@ -16,7 +16,7 @@ app.use(bodyparser.json());
 //app.use(express.static(path.join(__dirname,'client')));
 
 //Redirect to Api for home calls to fetch the notes for homepage
-app.use('/', api);
+app.use('/api', api);
 
 //return other routes to Angular Index file
 app.get('*',(req,res) => {
